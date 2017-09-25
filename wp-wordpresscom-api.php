@@ -113,6 +113,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 */
 		protected function set_headers() {
 			// Set request headers.
+			$this->args['timeout'] = 30;
 			$this->args['headers'] = array(
 				  'Authorization' => 'Bearer '. static::$oauth_token,
 					'Content-Type' => 'application/json',
@@ -124,7 +125,6 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 */
 		protected function clear() {
 			$this->args = array();
-			$this->query_args = array();
 		}
 
 		/**
@@ -138,17 +138,16 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		}
 
 		/**
-		 * Get User Properties
-		 *
-		 * Account Access: FREE, PRO, Business, Enterprise
+		 * Get a list of the current user's sites.
 		 *
 		 * @api GET
-		 * @see https://api.cloudflare.com/#user-user-details Documentation.
+		 * @see https://developer.wordpress.com/docs/api/1.1/get/me/sites/ Documentation.
 		 * @access public
-		 * @return array  User information.
+		 * @param  array $args  Array with optional parameters. See API docs for details.
+		 * @return array        Array of user's sites.
 		 */
-		public function get_user() {
-			return $this->build_request( 'user' )->fetch();
+		public function me_sites( $args = array() ){
+			return $this->build_request( 'me/sites', $args )->fetch();
 		}
 	}
 
