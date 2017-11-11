@@ -150,6 +150,27 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 			return $this->build_request( 'me/sites', $args )->fetch();
 		}
 
+		/* USERS. */
+
+		/* SITES. */
+
+		/* POSTS. */
+
+		/* COMMENTS. */
+
+		/* TAXONOMY. */
+
+		/* FOLLOW. */
+
+		/* SHARING. */
+
+		/* FRESHLY PRESSED. */
+
+		/* NOTIFICATIONS. */
+
+		/* INSIGHTS. */
+
+		/* READER. */
 
 		/* STATS. */
 
