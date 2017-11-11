@@ -155,7 +155,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 
 
 		/**
-		 * get_stats function.
+		 * Get Stats.
 		 *
 		 * @access public
 		 * @param mixed $site
@@ -164,6 +164,30 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 */
 		public function get_stats( $site, $args = array() ) {
 			return $this->build_request( 'sites/'. $site . '/stats', $args )->fetch();
+		}
+
+		/**
+		 * get_stats_summary function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_stats_summary( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/summary', $args )->fetch();
+		}
+
+		/**
+		 * get_top_posts function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_top_posts( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/top-posts', $args )->fetch();
 		}
 	}
 
