@@ -189,6 +189,34 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		public function get_top_posts( $site, $args = array() ) {
 			return $this->build_request( 'sites/'. $site . '/stats/top-posts', $args )->fetch();
 		}
+
+		public function get_video_stats( $site, $post_id, $args = array() ) {
+
+		}
+
+		public function get_site_referrers() {
+
+		}
+
+		public function get_site_outbound_clicks() {
+
+		}
+
+		public function get_site_stats_by_tags() {
+
+		}
+
+		public function get_site_top_authors() {
+
+		}
+
+		public function get_site_stats_comments() {
+
+		}
+
+		public function get_site_stats_video_plays() {
+
+		}
 	}
 
 }
