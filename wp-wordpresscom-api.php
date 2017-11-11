@@ -116,7 +116,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 			$this->args['timeout'] = 30;
 			$this->args['headers'] = array(
 				  'Authorization' => 'Bearer '. static::$oauth_token,
-					'Content-Type' => 'application/json',
+				  'Content-Type' => 'application/json',
 			);
 		}
 
@@ -148,6 +148,22 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 */
 		public function me_sites( $args = array() ){
 			return $this->build_request( 'me/sites', $args )->fetch();
+		}
+
+
+		/* STATS. */
+
+
+		/**
+		 * get_stats function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_stats( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats', $args )->fetch();
 		}
 	}
 
