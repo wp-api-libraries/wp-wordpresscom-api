@@ -211,33 +211,114 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 			return $this->build_request( 'sites/'. $site . '/stats/top-posts', $args )->fetch();
 		}
 
+		/**
+		 * get_video_stats function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param mixed $post_id
+		 * @param array $args (default: array())
+		 * @return void
+		 */
 		public function get_video_stats( $site, $post_id, $args = array() ) {
-
+			return $this->build_request( 'sites/'. $site . '/stats/video/' . $post_id, $args )->fetch();
 		}
 
-		public function get_site_referrers() {
-
+		/**
+		 * get_site_referrers function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_referrers( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/referrers', $args )->fetch();
 		}
 
-		public function get_site_outbound_clicks() {
-
+		/**
+		 * get_site_country_views function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_country_views( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/country-views', $args )->fetch();
 		}
 
-		public function get_site_stats_by_tags() {
-
+		/**
+		 * get_site_outbound_clicks function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_outbound_clicks( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/clicks', $args )->fetch();
 		}
 
-		public function get_site_top_authors() {
-
+		/**
+		 * get_site_stats_by_tags function.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function get_site_stats_by_tags( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/tags', $args )->fetch();
 		}
 
-		public function get_site_stats_comments() {
-
+		/**
+		 * get_site_top_authors function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_top_authors( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/top-authors', $args )->fetch();
 		}
 
-		public function get_site_stats_video_plays() {
-
+		/**
+		 * get_site_stats_comments function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_stats_comments( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/comments', $args )->fetch();
 		}
+
+		/**
+		 * get_site_stats_video_plays function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_stats_video_plays( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/video-plays', $args )->fetch();
+		}
+
+
+		/**
+		 * get_site_followers function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_followers( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/stats/followers', $args )->fetch();
+		}
+
 	}
 
 }
