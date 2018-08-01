@@ -23,6 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if ( ! class_exists( 'WordPressComAPI' ) ) {
 
+	/**
+	 * WordPressComAPI class.
+	 */
 	class WordPressComAPI {
 
 		/**
@@ -152,9 +155,43 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 
 		/* USERS. */
 
+		/**
+		 * get_users function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_users( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/users', $args )->fetch();
+		}
+
+		public function update_user() {
+
+		}
+
+		public function get_user() {
+
+		}
+
+
+
 		/* SITES. */
 
 		/* POSTS. */
+
+		/**
+		 * get_posts function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_posts( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/posts', $args )->fetch();
+		}
 
 		/* COMMENTS. */
 
@@ -173,7 +210,6 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		/* READER. */
 
 		/* STATS. */
-
 
 		/**
 		 * Get Stats.
@@ -318,6 +354,81 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		public function get_site_followers( $site, $args = array() ) {
 			return $this->build_request( 'sites/'. $site . '/stats/followers', $args )->fetch();
 		}
+
+
+		/* MEDIA. */
+
+		public function delete_media() {
+
+		}
+
+		public function post_media_item() {
+
+		}
+
+		/**
+		 * get_all_media function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_all_media( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/media/', $args )->fetch();
+
+		}
+
+		public function upload_media() {
+
+		}
+
+		public function update_media_item() {
+
+		}
+
+		/* MENUS. */
+
+		public function create_menu() {
+
+		}
+
+		public function update_menu() {
+
+		}
+
+		/**
+		 * get_menu function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param mixed $menu_id
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function get_menu( $site, $menu_id, $args ) {
+			return $this->build_request( 'sites/'. $site . '/menus/' . $menu_id, $args )->fetch();
+		}
+
+		/**
+		 * get_all_menus function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param mixed $args
+		 * @return void
+		 */
+		public function get_menus( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/menus', $args )->fetch();
+		}
+
+		public function delete_menu() {
+
+		}
+
+		/* BATCH. */
+
+		/* VIDEOS. */
 
 	}
 
