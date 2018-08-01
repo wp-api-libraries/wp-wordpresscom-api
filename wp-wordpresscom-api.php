@@ -179,6 +179,58 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 
 		/* SITES. */
 
+		public function get_rendered_shortcode( $site, $args = array() ) {
+
+		}
+
+		/**
+		 * get_available_shortcodes function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_available_shortcodes( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/shortcodes', $args )->fetch();
+		}
+
+		/**
+		 * get_available_embeds function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_available_embeds( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/embeds', $args )->fetch();
+		}
+
+		/**
+		 * get_widgets function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_widgets( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/widgets', $args )->fetch();
+		}
+
+		/**
+		 * get_post_types function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_post_types( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/post-types', $args )->fetch();
+		}
+
 		/* POSTS. */
 
 		/**
@@ -193,9 +245,35 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 			return $this->build_request( 'sites/'. $site . '/posts', $args )->fetch();
 		}
 
+
+
 		/* COMMENTS. */
 
 		/* TAXONOMY. */
+
+		/**
+		 * get_categories function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_categories( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/categories', $args )->fetch();
+		}
+
+		/**
+		 * get_tags function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_tags( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/tags', $args )->fetch();
+		}
 
 		/* FOLLOW. */
 
