@@ -231,6 +231,31 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 			return $this->build_request( 'sites/'. $site . '/post-types', $args )->fetch();
 		}
 
+		/**
+		 * get_post_types_count function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param mixed $post_type
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_post_types_count( $site, $post_type, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/post-counts/' . $post_type, $args )->fetch();
+		}
+
+		/**
+		 * get_page_templates function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_page_templates( $site, $args = array() ) {
+			return $this->build_request( 'sites/'. $site . '/page-templates', $args )->fetch();
+		}
+
 		/* POSTS. */
 
 		/**
