@@ -19,7 +19,8 @@
  */
 
 /* Exit if accessed directly */
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; }
 
 if ( ! class_exists( 'WordPressComAPI' ) ) {
 
@@ -33,7 +34,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 *
 		 * @var string
 		 */
-		static protected $oauth_token;
+		protected static $oauth_token;
 
 		/**
 		 * CloudFlare BaseAPI Endpoint
@@ -72,7 +73,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 			// Start building query.
 			$this->set_headers();
 			$this->args['method'] = $method;
-			$this->route = $route;
+			$this->route          = $route;
 
 			// Generate query string for GET requests.
 			if ( 'GET' === $method ) {
@@ -118,8 +119,8 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 			// Set request headers.
 			$this->args['timeout'] = 30;
 			$this->args['headers'] = array(
-				  'Authorization' => 'Bearer '. static::$oauth_token,
-				  'Content-Type' => 'application/json',
+				'Authorization' => 'Bearer ' . static::$oauth_token,
+				'Content-Type'  => 'application/json',
 			);
 		}
 
@@ -149,7 +150,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @param  array $args  Array with optional parameters. See API docs for details.
 		 * @return array        Array of user's sites.
 		 */
-		public function me_sites( $args = array() ){
+		public function me_sites( $args = array() ) {
 			return $this->build_request( 'me/sites', $args )->fetch();
 		}
 
@@ -164,7 +165,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_users( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/users', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/users', $args )->fetch();
 		}
 
 		public function update_user() {
@@ -192,7 +193,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_available_shortcodes( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/shortcodes', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/shortcodes', $args )->fetch();
 		}
 
 		/**
@@ -204,7 +205,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_available_embeds( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/embeds', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/embeds', $args )->fetch();
 		}
 
 		/**
@@ -216,7 +217,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_widgets( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/widgets', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/widgets', $args )->fetch();
 		}
 
 		/**
@@ -228,7 +229,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_post_types( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/post-types', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/post-types', $args )->fetch();
 		}
 
 		/**
@@ -241,7 +242,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_post_types_count( $site, $post_type, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/post-counts/' . $post_type, $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/post-counts/' . $post_type, $args )->fetch();
 		}
 
 		/**
@@ -253,7 +254,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_page_templates( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/page-templates', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/page-templates', $args )->fetch();
 		}
 
 		/* POSTS. */
@@ -267,7 +268,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_posts( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/posts', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/posts', $args )->fetch();
 		}
 
 
@@ -285,7 +286,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_categories( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/categories', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/categories', $args )->fetch();
 		}
 
 		/**
@@ -297,7 +298,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_tags( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/tags', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/tags', $args )->fetch();
 		}
 
 		/* FOLLOW. */
@@ -323,7 +324,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_stats( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats', $args )->fetch();
 		}
 
 		/**
@@ -335,7 +336,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_stats_summary( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/summary', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/summary', $args )->fetch();
 		}
 
 		/**
@@ -347,7 +348,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_top_posts( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/top-posts', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/top-posts', $args )->fetch();
 		}
 
 		/**
@@ -360,7 +361,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_video_stats( $site, $post_id, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/video/' . $post_id, $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/video/' . $post_id, $args )->fetch();
 		}
 
 		/**
@@ -372,7 +373,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_referrers( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/referrers', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/referrers', $args )->fetch();
 		}
 
 		/**
@@ -384,7 +385,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_country_views( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/country-views', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/country-views', $args )->fetch();
 		}
 
 		/**
@@ -396,7 +397,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_outbound_clicks( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/clicks', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/clicks', $args )->fetch();
 		}
 
 		/**
@@ -406,7 +407,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_stats_by_tags( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/tags', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/tags', $args )->fetch();
 		}
 
 		/**
@@ -418,7 +419,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_top_authors( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/top-authors', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/top-authors', $args )->fetch();
 		}
 
 		/**
@@ -430,7 +431,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_stats_comments( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/comments', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/comments', $args )->fetch();
 		}
 
 		/**
@@ -442,7 +443,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_stats_video_plays( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/video-plays', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/video-plays', $args )->fetch();
 		}
 
 
@@ -455,7 +456,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_site_followers( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/stats/followers', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/stats/followers', $args )->fetch();
 		}
 
 
@@ -478,7 +479,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_media( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/media/', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/media/', $args )->fetch();
 
 		}
 
@@ -510,7 +511,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_menu( $site, $menu_id, $args ) {
-			return $this->build_request( 'sites/'. $site . '/menus/' . $menu_id, $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/menus/' . $menu_id, $args )->fetch();
 		}
 
 		/**
@@ -522,7 +523,7 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		 * @return void
 		 */
 		public function get_menus( $site, $args = array() ) {
-			return $this->build_request( 'sites/'. $site . '/menus', $args )->fetch();
+			return $this->build_request( 'sites/' . $site . '/menus', $args )->fetch();
 		}
 
 		public function delete_menu() {
