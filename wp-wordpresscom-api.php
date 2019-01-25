@@ -458,6 +458,19 @@ if ( ! class_exists( 'WordPressComAPI' ) ) {
 		public function get_site_followers( $site, $args = array() ) {
 			return $this->build_request( 'sites/' . $site . '/stats/followers', $args )->fetch();
 		}
+		
+		/**
+		 * get_site_activity function.
+		 *
+		 * @access public
+		 * @param mixed $site
+		 * @param array $args (default: array())
+		 * @return void
+		 */
+		public function get_site_activity( $site, $args = array() ) {
+			return $this->build_request( 'sites/' . $site . '/stats/activity', $args )->fetch();
+		}
+
 
 
 		/* MEDIA. */
